@@ -1,29 +1,48 @@
+
 name: Refresh Ireland housing data
-on:
+
+'on':
   workflow_dispatch:
+
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/daily-monitor.yml'
+
   schedule:
-    - cron: '18 7 * * *' # Daily 07:18 UTC; GitHub scheduled jobs can be delayed.
+    - cron: '18 7 * * *'
+
 permissions:
   contents: write
-  issues: write # Required only if enable_github_issues=true.
+  issues: write
+
 jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 12
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           persist-credentials: true
-      - uses: actions/setup-python@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
           cache: pip
-      - run: pip install -r requirements.txt
-      - name: Fetch public data and optionally open issue alerts
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch Ireland housing data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python monitor.py
+
       - name: Commit updated snapshots
         run: |
           git config user.name "github-actions[bot]"
