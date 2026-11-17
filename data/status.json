@@ -1,0 +1,16 @@
+{
+  "checked_at_utc": "2026-11-17T14:25:37.717778+00:00",
+  "datasets": {
+    "prices": {
+      "label": "Residential property prices (CSO HPM09)",
+      "source_url": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/HPM09/CSV/1.0/en",
+      "rows": 20800,
+      "latest": null,
+      "refreshed_at_utc": "2026-11-17T14:25:37.717778+00:00"
+    }
+  },
+  "errors": {
+    "rents": "HTTPError: 403 Client Error: Forbidden for url: https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/RIQ02/CSV/1.0/en"
+  },
+  "news_items": 30
+}
