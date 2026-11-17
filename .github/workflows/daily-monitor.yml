@@ -1,1 +1,35 @@
-
+name: Refresh Ireland housing data
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '18 7 * * *' # Daily 07:18 UTC; GitHub scheduled jobs can be delayed.
+permissions:
+  contents: write
+  issues: write # Required only if enable_github_issues=true.
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Fetch public data and optionally open issue alerts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python monitor.py
+      - name: Commit updated snapshots
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(data): refresh Irish housing snapshots"
+            git push
+          fi
