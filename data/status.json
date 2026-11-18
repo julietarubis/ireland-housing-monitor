@@ -1,12 +1,12 @@
 {
-  "checked_at_utc": "2026-11-17T14:25:37.717778+00:00",
+  "checked_at_utc": "2026-11-18T16:28:20.566371+00:00",
   "datasets": {
     "prices": {
       "label": "Residential property prices (CSO HPM09)",
       "source_url": "https://ws.cso.ie/public/api.restful/PxStat.Data.Cube_API.ReadDataset/HPM09/CSV/1.0/en",
-      "rows": 20800,
+      "rows": 20880,
       "latest": null,
-      "refreshed_at_utc": "2026-11-17T14:25:37.717778+00:00"
+      "refreshed_at_utc": "2026-11-18T16:28:20.566371+00:00"
     }
   },
   "errors": {
