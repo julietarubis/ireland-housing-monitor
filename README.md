@@ -4,7 +4,7 @@
 
 Built with **Python**, **Streamlit**, and **GitHub Actions**, Ireland Housing Monitor brings together official housing statistics and relevant news in one interactive dashboard. A scheduled GitHub workflow checks public datasets each day, stores snapshots in the repository, and makes them available to the deployed Streamlit app.
 
-> **Project status:** The application has been deployed to Streamlit Community Cloud. On **17 November 2026**, GitHub Actions workflow run #2 completed successfully, committed snapshot files, and the Streamlit dashboard displayed the scheduled GitHub snapshot. This documents a verified run, not a guarantee that every future update or source will succeed.
+> **Project status:** The application has been deployed to Streamlit Community Cloud. GitHub Actions workflow run #2 completed successfully, committed snapshot files, and the Streamlit dashboard displayed the scheduled GitHub snapshot. This documents a verified run, not a guarantee that every future update or source will succeed.
 
 ## Features
 
