@@ -1,7 +1,5 @@
 # 🏠 Ireland Housing Monitor
 
-A ready-to-deploy **Python + Streamlit** housing dashboard for Ireland, connected to **CSO residential price index**, **RTB registered rents**, and housing-news RSS. **GitHub Actions** refreshes public-data snapshots daily so the Streamlit app can read stable files from GitHub.
-
 ## Features
 
 - 📈 Monthly CSO Residential Property Price Index (HPM09); filter series and compare periods
